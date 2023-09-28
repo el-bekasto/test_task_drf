@@ -48,7 +48,7 @@ class SendMessageAPIView(APIView):
     def post(self, request: Request):
         user = models.User.objects.get(pk=Token.objects.get(key__exact=request.auth).user_id)
         if user.telegram_id:
-            bot.notify_user(user.telegram_id, request.data['message'])
+            bot.notify_user(user, request.data['message'])
             return Response({'result': 'ok'}, status=status.HTTP_200_OK)
         else:
             return Response({'result': 'You did not link telegram bot to your token.'})

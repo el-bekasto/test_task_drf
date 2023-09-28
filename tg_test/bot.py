@@ -1,5 +1,7 @@
 import requests
 
+from . import models
+
 
 class Chat:
     def __init__(self, data):
@@ -54,10 +56,10 @@ class Bot:
             text='Токен успешно зарегистрирован.'
         )
 
-    def notify_user(self, user_id, message):
+    def notify_user(self, user: models.User, message):
         self.send_message(
-            chat_id=user_id,
-            text=message
+            chat_id=user.telegram_id,
+            text=f'{user.first_name}, я получил от вас новое сообщение:\n{message}'
         )
 
     def doesnotexist(self, user: User):
