@@ -46,7 +46,8 @@ class Bot:
             '/sendMessage',
             {
                 'chat_id': chat_id,
-                'text': text
+                'text': text,
+                'parse_mode': 'HTML'
             }
         )
 
@@ -59,7 +60,7 @@ class Bot:
     def notify_user(self, user: models.User, message):
         self.send_message(
             chat_id=user.telegram_id,
-            text=f'{user.first_name}, я получил от вас новое сообщение:\n{message}'
+            text=f'{user.first_name}, я получил от вас новое сообщение:\n<i>{message}</i>'
         )
 
     def doesnotexist(self, user: User):
