@@ -50,10 +50,10 @@ class Bot:
             }
         )
 
-    def tokenregistered(self, user: User):
+    def tokenregistered(self, user: User, user_obj: models.User):
         self.send_message(
             chat_id=user.id,
-            text='Токен успешно зарегистрирован.'
+            text=f'Добро пожаловать, {user_obj.username}! Ваш токен успешно привязан.'
         )
 
     def notify_user(self, user: models.User, message):

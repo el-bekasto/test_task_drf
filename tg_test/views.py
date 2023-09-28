@@ -69,7 +69,7 @@ class BotAPIView(APIView):
                         user.token = token.key
                         user_obj.save()
                         user.save()
-                        bot.tokenregistered(msg.from_user)
+                        bot.tokenregistered(msg.from_user, user_obj)
                     except Token.DoesNotExist:
                         bot.doesnotexist(msg.from_user)
             except models.TgUser.DoesNotExist:
