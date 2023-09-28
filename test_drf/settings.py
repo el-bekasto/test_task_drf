@@ -15,8 +15,8 @@ DEBUG = True
 TOKEN = os.getenv('TOKEN')
 TELEGRAM_API_URL = f'https://api.telegram.org/bot{TOKEN}'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok.io', '.ngrok-free.app']
-CSRF_TRUSTED_ORIGINS = ['https://*.ngrok.io', 'https://*.ngrok-free.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.getenv('ALLOWED_HOST')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('SERVER_URL')]
 
 
 INSTALLED_APPS = [
